@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Input from "./component/input";
 import Joi from "joi-browser";
-import Test from "./signIn";
 
 class Reg extends Component {
   state = {
@@ -39,7 +38,7 @@ class Reg extends Component {
   };
 
   render() {
-    const {data, error} = this.state;
+    const {data} = this.state;
     const {onAddUser} = this.props;
 
     return (
@@ -69,7 +68,7 @@ class Reg extends Component {
               className='form-group'>
               {" "}
               <h3>
-                <badge className='badge badge-primary'> Submit</badge>
+                <div className='badge badge-primary'> Submit</div>
               </h3>
             </div>
           </form>

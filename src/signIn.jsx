@@ -19,7 +19,7 @@ class SingnIn extends Component {
             <label htmlFor='exampleInputEmail1'>Usename</label>
             <input
               type='text'
-              class='form-control'
+              className='form-control'
               id='usename'
               name='usename'
               aria-describedby='emailHelp'
@@ -31,7 +31,7 @@ class SingnIn extends Component {
             <label htmlFor='exampleInputPassword1'>Password</label>
             <input
               type='password'
-              class='form-control'
+              className='form-control'
               id='exampleInputPassword1'
               name='password'
               value={this.state.password}

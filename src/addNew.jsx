@@ -36,7 +36,7 @@ class AddNew extends Component {
   };
 
   render() {
-    const {title, img, numberInStock: stock, _id, content} = this.state.user;
+    const {title, img, numberInStock: stock, content} = this.state.user;
     const {error} = this.state;
     return (
       <div className='container w-50'>

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Route, Switch, Redirect} from "react-router-dom";
 import NavBar from "./navBar";
 import Home from "./home";
-import Test from "./test";
+
 import _ from "lodash";
 import {getMovies} from "./services/fakeMovieService";
 import Reg from "./reg";
