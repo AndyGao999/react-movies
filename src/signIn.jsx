@@ -6,18 +6,27 @@ class SingnIn extends Component {
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value});
+    this.props.onRest();
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
   };
 
   render() {
-    // console.log(test);
+    const {error, logIn} = this.props;
+
     // const test = event.target.value;
     // console.log(test);
+
     return (
       <div className='container w-50'>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
             <label htmlFor='exampleInputEmail1'>Usename</label>
             <input
+              error={error}
               type='text'
               className='form-control'
               id='usename'
@@ -26,6 +35,12 @@ class SingnIn extends Component {
               value={this.state.usename}
               onChange={this.handleChange}
             />
+            {logIn.usename === "" && (
+              <React.Fragment>
+                {" "}
+                <div className='alert-danger'> {error}</div>
+              </React.Fragment>
+            )}
           </div>
           <div className='form-group'>
             <label htmlFor='exampleInputPassword1'>Password</label>
@@ -39,17 +54,9 @@ class SingnIn extends Component {
             />
           </div>
           <div className='form-check'></div>
-          <h3>
-            {" "}
-            <Link to='/'>
-              {" "}
-              <div
-                onClick={() => this.props.onSubmit(this.state)}
-                className='badge badge-primary'>
-                Sign In
-              </div>
-            </Link>
-          </h3>
+          <button type='submit' className='btn btn-primary'>
+            Submit
+          </button>
         </form>
       </div>
     );

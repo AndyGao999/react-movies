@@ -24,7 +24,7 @@ class App extends Component {
       {usename: "andy", password: "01gaojie", isAdmin: false},
     ],
     logIn: {usename: "", password: "", isAdmin: false},
-    error: {},
+    error: "",
   };
 
   handleDelete = (id) => {
@@ -56,7 +56,7 @@ class App extends Component {
     const logIn = {...this.state.logIn};
     const users = [...this.state.users];
     const user = users.filter((u) => u.usename === data.usename);
-    console.log(user);
+
     if (user.length >= 1) {
       if (
         user[0].usename === data.usename &&
@@ -64,15 +64,23 @@ class App extends Component {
       ) {
         logIn.usename = data.usename;
         logIn.password = data.password;
-        this.setState({logIn});
-        console.log(this.props);
+        const error = "";
+        this.setState({logIn, error});
+
         // this.props.history.push("/");
       }
     }
+    this.setState({error: "usename or password incorrect"});
+
+    // const error = "Instant usename or password incorrect";
+    // console.log(this.state.error, error);
+  };
+
+  handleRestError = () => {
+    this.setState({error: ""});
   };
 
   handleEdit = (data, index) => {
-    console.log(index, data.title);
     const movies = [...this.state.movies];
 
     movies[index].title = data.title;
@@ -85,7 +93,6 @@ class App extends Component {
     logIn.usename = "";
     logIn.password = "";
     this.setState({logIn});
-    console.log("logOut", this.state.logIn);
   };
 
   handleAddUser = (data) => {
@@ -105,7 +112,15 @@ class App extends Component {
   };
 
   render() {
-    const {currentPage, pageSize, genres, logIn, currentGenre} = this.state;
+    console.log(this.state.error);
+    const {
+      currentPage,
+      pageSize,
+      genres,
+      error,
+      logIn,
+      currentGenre,
+    } = this.state;
 
     const movies = [...this.state.movies];
     const _movies =
@@ -150,9 +165,19 @@ class App extends Component {
 
               <Route
                 path='/signIn'
-                render={(props) => (
-                  <SignIn onSubmit={this.handleSubmit} {...props} />
-                )}
+                render={(props) => {
+                  if (logIn.usename === "")
+                    return (
+                      <SignIn
+                        logIn={logIn}
+                        error={error}
+                        onSubmit={this.handleSubmit}
+                        onRest={this.handleRestError}
+                        {...props}
+                      />
+                    );
+                  return <Redirect to='/' />;
+                }}
               />
               <Route
                 path='/addNew'

@@ -37,6 +37,11 @@ class Reg extends Component {
     console.log(erro, erro.value);
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onAddUser(this.state.data);
+  };
+
   render() {
     const {data} = this.state;
     const {onAddUser} = this.props;
@@ -44,7 +49,7 @@ class Reg extends Component {
     return (
       <div className='container w-50'>
         <div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <Input
               id='usename'
               name='usename'
@@ -63,14 +68,9 @@ class Reg extends Component {
               onChange={this.handleChange}
               error={this.state.error.password}
             />
-            <div
-              onClick={() => onAddUser(this.state.data)}
-              className='form-group'>
-              {" "}
-              <h3>
-                <div className='badge badge-primary'> Submit</div>
-              </h3>
-            </div>
+            <button type='submit' class='btn btn-primary'>
+              Submit
+            </button>
           </form>
         </div>
       </div>

@@ -35,12 +35,17 @@ class AddNew extends Component {
     // this.setState({error});
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onAdd(this.state.user);
+  };
+
   render() {
     const {title, img, numberInStock: stock, content} = this.state.user;
     const {error} = this.state;
     return (
       <div className='container w-50'>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <Input
             lable='Title'
             name='title'
@@ -73,17 +78,9 @@ class AddNew extends Component {
             onChange={this.handleChange}>
             {" "}
           </textarea>
-
-          <Link>
-            {" "}
-            <h4>
-              <div
-                onClick={() => this.props.onAdd(this.state.user)}
-                className='badge badge-primary'>
-                Add New
-              </div>
-            </h4>
-          </Link>
+          <button type='submit' class='btn btn-primary'>
+            Submit
+          </button>
         </form>
       </div>
     );

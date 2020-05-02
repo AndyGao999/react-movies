@@ -18,7 +18,7 @@ class MovieComponent extends Component {
     // const index = this.props.movies.indexOf(this.props.m);
 
     return (
-      <div className='col p-2 border-bottom'>
+      <div className='col p-1 border-bottom'>
         <Link to={"/movieDetail/" + _id + "/" + this.props.index + "/show"}>
           <img src={"http://localhost:3000/" + img} alt='' />
         </Link>
