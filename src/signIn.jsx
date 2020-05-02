@@ -23,13 +23,14 @@ class SingnIn extends Component {
       <div className='container w-50'>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
-            <label htmlFor='exampleInputEmail1'>Usename</label>
+            <label htmlFor='exampleInputEmail'>Usename</label>
             <input
               error={error}
               type='text'
               className='form-control'
               id='usename'
               name='usename'
+              autoComplete='username'
               aria-describedby='emailHelp'
               value={this.state.usename}
               onChange={this.handleChange}
@@ -42,12 +43,13 @@ class SingnIn extends Component {
             )}
           </div>
           <div className='form-group'>
-            <label htmlFor='exampleInputPassword1'>Password</label>
+            <label htmlFor='exampleInputPassword'>Password</label>
             <input
               type='password'
               className='form-control'
-              id='exampleInputPassword1'
+              id='password'
               name='password'
+              autoComplete='current-password'
               value={this.state.password}
               onChange={this.handleChange}
             />

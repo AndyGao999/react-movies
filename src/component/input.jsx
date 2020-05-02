@@ -8,6 +8,7 @@ const Input = ({name, lable, value, error, onChange, type = "text"}) => {
         id={name}
         name={name}
         value={value}
+        autoComplete={name}
         type={type}
         onChange={onChange}
         className='form-control'

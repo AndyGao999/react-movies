@@ -54,6 +54,7 @@ class Reg extends Component {
               name='usename'
               value={data.usename}
               type='text'
+              autoComplete='username'
               lable='UseName'
               onChange={this.handleChange}
               error={this.state.error.usename}
@@ -61,13 +62,14 @@ class Reg extends Component {
             <Input
               id='password'
               name='password'
+              autoComplete='current-password'
               value={data.password}
               type='password'
               lable='Password'
               onChange={this.handleChange}
               error={this.state.error.password}
             />
-            <button type='submit' class='btn btn-primary'>
+            <button type='submit' className='btn btn-primary'>
               Submit
             </button>
           </form>
