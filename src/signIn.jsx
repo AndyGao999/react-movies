@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
-// import Input from "./input";
+
 class SingnIn extends Component {
   state = {usename: "", password: ""};
 
@@ -53,7 +52,7 @@ class SingnIn extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className='form-check'></div>
+
           <button type='submit' className='btn btn-primary'>
             Submit
           </button>

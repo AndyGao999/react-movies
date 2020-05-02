@@ -44,7 +44,6 @@ class Reg extends Component {
 
   render() {
     const {data} = this.state;
-    const {onAddUser} = this.props;
 
     return (
       <div className='container w-50'>

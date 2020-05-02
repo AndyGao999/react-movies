@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Input from "./component/input";
-import {Link} from "react-router-dom";
+
 import Joi from "joi-browser";
 
 class AddNew extends Component {
